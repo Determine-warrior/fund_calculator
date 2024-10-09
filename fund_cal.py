@@ -92,7 +92,7 @@ def generate_report(portfolio, xirr):
     total_value = total_gain = 0
     report_lines = []
 
-    # Add CSS styling
+    #  CSS styling
     report_lines.append("""
     <html>
     <head>
@@ -127,7 +127,7 @@ def generate_report(portfolio, xirr):
         total_value += current_value
         total_gain += gain
         
-        # Prepare row for HTML table
+        # row for HTML table
         report_lines.append(f"""
         <tr>
             <td class='calculation'>{scheme}</td>
@@ -139,7 +139,7 @@ def generate_report(portfolio, xirr):
         </tr>
         """)
         
-        # Add detailed calculations
+        # detailed calculations
         report_lines.append(f"<tr><td colspan='6' class='calculation'><strong>Calculations for {scheme}:</strong><br>")
         report_lines.append(f"Market Value = Closing Balance × Current NAV = {info['closing_balance']} × {info['current_nav']:.2f}<br>")
         report_lines.append(f"Total Acquisition Cost = Σ (Units × Purchase Price)<br>")
@@ -167,7 +167,7 @@ def generate_report(portfolio, xirr):
     </html>
     """)
 
-    # Write to HTML file
+    # HTML file
     html_content = "".join(report_lines)
     with open('portfolio_summary.html', 'w', encoding='utf-8') as file:
         file.write(html_content)
